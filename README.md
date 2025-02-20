@@ -8,7 +8,7 @@ Cloud computing is the delivery of computing services like storage, processing, 
 
 Something is in the cloud if it is stored, processe, or run on remote servers accessed via the internet rather than on a local device. If you can reach it from multiple devices without needing specific hardware, its likely cloud based. 
 
-![cloud computing infrastructure Image](/cloud_computing/Images/cloudpic.png)   
+![cloud computing infrastructure Image](/Images/cloudpic.png)   
 
 ## What is the difference between On-Prem and Cloud?
 
@@ -18,7 +18,7 @@ Something is in the cloud if it is stored, processe, or run on remote servers ac
 #### Cloud:
 - Computing resoruces are hosted on remote servers managed by a cloud provider, like AWS, via the internet. The provider hnadles infrastrucure and overall maintenance. 
 
-![On-Prem vs Cloud Image](/cloud_computing/Images/cloudpic2.JPG)
+![On-Prem vs Cloud Image](/Images/cloudpic2.JPG)
 
 ## Cloud Deployment Models 
 
