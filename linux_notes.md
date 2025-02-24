@@ -54,7 +54,81 @@ The command to view file ownership is:
 ```bash
 ls -l <filename>
 ```
+## Permission Types 
 
+
+
+### **Permission Types**
+| Symbol | Numeric Value | Meaning |
+|--------|--------------|---------|
+| `r` (read) | `4` | Allows viewing the contents of a file or listing a directory. |
+| `w` (write) | `2` | Allows modifying a file or creating/deleting files in a directory. |
+| `x` (execute) | `1` | Allows executing a file as a program or accessing a directory. |
+
+### **Permission Categories**
+| Category | Symbol | Meaning |
+|----------|--------|---------|
+| Owner | `u` | The user who owns the file. |
+| Group | `g` | Users who belong to the file's group. |
+| Others | `o` | All other users on the system. |
+
+```
+-rwxr-xr--
+```
+- '-', The first - means regular file 
+- 'rwx', Owner can read, write, and execute 
+- 'r-x', Group can read and execute 
+- 'r--', Others can only read 
+
+Another example would be : 
+
+```
+-rwxr-xr-- 1 tcboony staff  123 Nov 25 18:36 keeprunning.sh
+```
+
+- : regular file 
+rwx : The owner is tcboony 
+r-x : The group is staff 
+r-- : Others can only read 
+
+Number of links = 1
+The file is not hardlinked to another file 
+
+File size : 123 bytes 
+
+we can the last modification date 
+
+filename : keeprunning.sh 
+
+### **Numeric (Octal) Permissions**
+
+| Permission | Binary | Octal | Meaning |
+|------------|--------|-------|---------|
+| `rwx`      | `111`  | `7`   | Read, Write, Execute |
+| `rw-`      | `110`  | `6`   | Read, Write |
+| `r-x`      | `101`  | `5`   | Read, Execute |
+| `r--`      | `100`  | `4`   | Read |
+| `-wx`      | `011`  | `3`   | Write, Execute |
+| `-w-`      | `010`  | `2`   | Write |
+| `--x`      | `001`  | `1`   | Execute |
+| `---`      | `000`  | `0`   | No Permissions |
+
+## Why does the owner by defualt not receive X permission when they create a file 
+
+Owners don't get the X permissions by defualt when a file is creatd because Linux is influced by the umask setting
+
+### File Creation and Default Permissions:
+When a user creates a file, Linux typically assigns default permissions of 666 (rw-rw-rw-) for files, meaning:
+
+Owner: read (r), write (w)
+Group: read (r), write (w)
+Others: read (r), write (w)
+
+The execute permission (x) is not set by default because regular files are assumed to be non-executable unless explicitly specified. 
+This prevents random files from being executed 
+
+umask determine which permissons are removed from the default file permissions. The default umask is 022 which results in files being created with 644 (rw-r--r--)
+directories = 755 (rwxr-xr-x)  
 
 
 <br/> 
