@@ -16,7 +16,7 @@ sudo DEBIAN_FRONTEND=noninteractive bash -c "curl -fsSL https://deb.nodesource.c
 sudo npm install 
 
 # app start
-sudo npm install 
+sudo npm start 
 
 
 
