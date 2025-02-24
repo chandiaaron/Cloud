@@ -153,3 +153,6 @@ sudo npm start
 ```
 
 - The app should be running now on port 3000, if you grab your ip address with a :3000 attached at the end you should see your app running. 
+
+![test app running Image](/Images/testapp.JPG)
+
