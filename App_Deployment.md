@@ -57,7 +57,7 @@ We are finished with the configurations, the overall summary should reflect this
 
 ## Launching our Instance 
 
-![success Image](/Images/awspic6.JPG) 
+![success Image](/Images/awspic5.JPG) 
 
 click the link attached to the success banner. You should see a button called "Connect" click that, we want to copy the last command into our GitBash but witin the directory of where our key is, .pem file:
 ```GitBash
