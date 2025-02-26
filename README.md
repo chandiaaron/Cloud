@@ -112,7 +112,7 @@ One way to mitigate some of the risks is by adpoting a Hybrid approach. combinin
 
 ## Market Share 
 
-![Market Share Image](/Images/coudpic6.JPG)
+![Market Share Image](/Images/cloudpic6.JPG)
 
 #### Top 3 Cloud Providers and Their Strengths  
 
