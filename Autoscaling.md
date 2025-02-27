@@ -198,9 +198,9 @@ Also at the bottom there is an option to pick **balanced best effort**, this wil
 
 ## Configure group size and scaling
 
-![group scaling](!/Images/Lt8.1.JPG)
+![group scaling](/Images/Lt8.1.JPG)
 
-![group scaling](!/Images/Lt8.2.JPG)
+![group scaling](/Images/Lt8.2.JPG)
 
 - our desired capacity is 2, min = 2, and max is 3 but the third instance is inactive for now. 
 - Target tracking scaling policy, in this case we are tracking cpu usage. If it surges above 50 percent then we can direct traffic to another instance. 
