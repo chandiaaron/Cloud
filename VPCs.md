@@ -125,7 +125,7 @@ The purpose of creating an Internet Gateway is to enable communication between r
 
 ![sub net orange button](/Images/vpc7.JPG)
 
-- we need to attache our ig to our vpc and should be promted like so in the green banner : 
+- we need to attach our ig to our vpc and should be promted like so in the green banner : 
 
 ![sub net orange button](/Images/vpc8.JPG)
 
