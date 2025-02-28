@@ -3,6 +3,30 @@
 ## What is Autoscaling 
 
 Autoscaling is a cloud computing feature that automatically adjusts the amount of computing resources (like virtual machines or instances) based on the demand. The main goal of autoscaling is to ensure that an application has the right amount of resources to handle the workload at any given time, without over-provisioning (wasting resources) or under-provisioning (leading to performance issues).
+```mermaid
+flowchart TB
+ subgraph Main["Main"]
+        C{"Auto Scaling Group"}
+        B("Launch Template")
+        D["Scaling Policy, min, max, CPU metric"]
+        F[" "]
+        n1["AMI"]
+        A["VM"]
+  end
+ subgraph Ireland["Ireland AZ"]
+        n4["VM1 (A)"]
+        n5["VM2 (B)"]
+        n6["VM3 (C)"]
+  end
+    B -- used by --> C
+    C --> D
+    C -- Creates the VMs --> F
+    A --> n1
+    n1 --> B
+    F --> n2["Internet"]
+    n2 --> n3["Load Balancer"]
+    n3 --> n4 & n5 & n6
+```
 
 ## What is Cloud Watch
 
