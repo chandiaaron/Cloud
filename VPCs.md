@@ -1,6 +1,87 @@
 # Virtual Private Cloud 
 
  A VPC is your own private cloud/network within the cloud. It allows you to launch AWS resources, such as EC2 instances, in a private, customisable networking environment.
+```mermaid
+graph TD
+    subgraph VPC[VPC - 10.0.0.0/16]
+        style VPC fill:#f0f8ff,stroke:#333,stroke-width:2px,color:#333333
+
+        subgraph PublicSubnet1[Public Subnet 1 - 10.0.1.0/24]
+            style PublicSubnet1 fill:#e6f7ff,stroke:#333,stroke-width:2px,color:#333333
+            WebApp[Web Application Instance]
+            style WebApp fill:#cce5ff,stroke:#333,stroke-width:2px,color:#333333
+        end
+
+        subgraph PublicSubnet2[Public Subnet 2 - 10.0.2.0/24]
+            style PublicSubnet2 fill:#e6f7ff,stroke:#333,stroke-width:2px,color:#333333
+            WebApp2[Web Application Instance]
+            style WebApp2 fill:#cce5ff,stroke:#333,stroke-width:2px,color:#333333
+        end
+
+        subgraph PrivateSubnet1[Private Subnet 1 - 10.0.3.0/24]
+            style PrivateSubnet1 fill:#ffe6e6,stroke:#333,stroke-width:2px,color:#333333
+            DB[Database Instance]
+            style DB fill:#ffcccc,stroke:#333,stroke-width:2px,color:#333333
+        end
+
+        subgraph PrivateSubnet2[Private Subnet 2 - 10.0.4.0/24]
+            style PrivateSubnet2 fill:#ffe6e6,stroke:#333,stroke-width:2px,color:#333333
+            DB2[Database Instance]
+            style DB2 fill:#ffcccc,stroke:#333,stroke-width:2px,color:#333333
+        end
+
+        PublicRouteTable[Public Route Table]
+        style PublicRouteTable fill:#f0e6ff,stroke:#333,stroke-width:2px,color:#333333
+
+        PrivateRouteTable[Private Route Table]
+        style PrivateRouteTable fill:#f0e6ff,stroke:#333,stroke-width:2px,color:#333333
+
+        PublicSubnet1 --> PublicRouteTable
+        PublicSubnet2 --> PublicRouteTable
+        PrivateSubnet1 --> PrivateRouteTable
+        PrivateSubnet2 --> PrivateRouteTable
+
+        PublicRouteTable -->|0.0.0.0/0| IGW[Internet Gateway]
+        style IGW fill:#d4f7d4,stroke:#333,stroke-width:2px,color:#333333
+        PublicRouteTable -->|10.0.0.0/16| Local
+        PrivateRouteTable -->|10.0.0.0/16| Local
+    end
+
+    IGW --> Internet[Internet]
+    style Internet fill:#d4f7d4,stroke:#333,stroke-width:2px,color:#333333
+
+    WebApp -->|HTTP/HTTPS| Internet
+    WebApp -->|Database Access| DB
+    WebApp2 -->|Database Access| DB2
+
+    %% Styling for arrows
+    linkStyle 0 stroke:#0077b3,stroke-width:2px
+    linkStyle 1 stroke:#ff5733,stroke-width:2px
+    linkStyle 2 stroke:#ff5733,stroke-width:2px
+    linkStyle 3 stroke:#333333,stroke-width:2px
+    linkStyle 4 stroke:#333333,stroke-width:2px
+    linkStyle 5 stroke:#333333,stroke-width:2px
+    linkStyle 6 stroke:#333333,stroke-width:2px
+    linkStyle 7 stroke:#333333,stroke-width:2px
+    linkStyle 8 stroke:#333333,stroke-width:2px
+    linkStyle 9 stroke:#333333,stroke-width:2px
+    linkStyle 10 stroke:#333333,stroke-width:2px
+```
+## Summary of What’s Happening
+The VPC is divided into public and private subnets.
+
+Web application instances in the public subnets can access the internet and communicate with database instances in the private subnets.
+
+Database instances are isolated in the private subnets and cannot access the internet directly.
+
+The route tables control traffic flow:
+
+Public subnets use the Internet Gateway for internet access.
+
+Private subnets only allow internal VPC communication via the local route.
+
+The Internet Gateway enables internet access for resources in the public subnets.
+
 
 # Why Use a VPC (Virtual Private Cloud)?  
 
@@ -33,6 +114,30 @@ A VPC is **essential for securing, scaling, and managing cloud infrastructure** 
 
 3. **High Availability and Redundancy**: By leveraging multi-AZ (Availability Zone) deployments, VPC ensures fault tolerance, high availability, and improved disaster recovery for business-critical applications.
 
+
+# Top 3 Ways VPCs Help DevOps  
+
+## Secure and Isolated Environments  
+- VPCs allow DevOps teams to create **logically isolated** environments for development, testing, and production.  
+- **Security Groups & Network ACLs (NACLs)** ensure controlled access to resources.  
+- Helps prevent accidental exposure of internal services to the internet.  
+
+## Scalable and Flexible Networking  
+- Custom **IP address ranges (CIDR blocks)** for better organization and scaling.  
+- Support for **multi-AZ deployments** ensures high availability.  
+- Allows **fine-grained control** over network configurations, including **subnets, route tables, and gateways**.  
+
+## Secure CI/CD and Automation Workflows  
+- Enables **secure communication** between CI/CD pipelines and AWS services.  
+- Can integrate with **VPC endpoints** for private, high-speed access to AWS services (e.g., S3, DynamoDB).  
+- Supports **bastion hosts and VPNs** for secure access to internal environments.  
+
+
+## Why did AWS need to implement VPCs?
+AWS implemented Virtual Private Cloud (VPC) to provide customers with greater control, security, and flexibility over their cloud networking environment. When AWS first launched, all resources (like EC2 instances) existed in a shared networking space, which posed challenges in terms of isolation, security, and customization.
+
+# Key Words : 
+
 # Subnet 
 
 A subnet, subnetwork, is a smaller portion of a larger network, tpyically a VPC. The subnet divides a VPC into smaller segments, each with its own range of IP addresses. 
@@ -47,7 +152,25 @@ Notation for describing blocks of IP addresses
 
 CIDR helps us define the IP address range for our VPC. we need to ensure that the CIDR block we choose provides enough addresses to all resources we plan to use like EC2 instances, load balancers and databases, both now and in the future. 
 
+# Public Subnet
+A public subnet is a subnet that has a route to the Internet Gateway (IGW), allowing resources within it (e.g., web servers) to communicate directly with the internet. It is typically used for resources that need to be publicly accessible.
+
+# Private Subnet
+A private subnet is a subnet that does not have a direct route to the internet. Resources in a private subnet (e.g., databases) can only communicate within the VPC or through a NAT Gateway for limited outbound internet access. It is used for resources that should not be exposed to the public internet.
+
+# Internet Gateway  
+The IGW acts like bridge for resources in your VPC to access the internet and for the internet to access resources in your VPC. 
+
+# Route Table
+A route table is a set of rules (called routes) that determine where network traffic from your subnet or VPC is directed. It acts as a traffic controller.
+
+
+
+
 You can use the following link to help you visualise CIDR blocks further : [IP/CIDR Calculator](https://cidr.xyz/)  
+
+<br/>
+<br/>
 
 # How to set up a VPC 
 
