@@ -38,4 +38,4 @@ sudo DEBIAN_FRONTEND=noninteractive npm install pm2 -g
 pm2 kill
 
 # run the app with pm2
-pm2 start app.js
+pm2 start app.js 
