@@ -22,3 +22,10 @@ Afterward, return to the EC2 Dashboard and launch a new instance.
 
 Instead of clicking **Quick Start** when selecting your AMI, click **My AMIs**, and then search for the image that we just created. Other settings, such as your key pair and security group policy, should be set up as usual. Remember, this is for a database, so make sure to select the appropriate security group.
 
+# How to run your script in your Image 
+
+Once you have your image and dedicated file present we can run scripts to automate the manual process : 
+
+```GitBash
+scp -i /c/Users/Aaron/.ssh/hmlr-aaron-aws-key.pem /c/Users/Aaron/sparta_training/cloud_computing/my_scripts/ ubuntu@<ip of image instance>:/home/ubuntu/
+```
