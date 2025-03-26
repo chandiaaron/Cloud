@@ -1,0 +1,15 @@
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\bin\Debug\net9.0\Test App (Console).exe
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\bin\Debug\net9.0\Test App (Console).deps.json
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\bin\Debug\net9.0\Test App (Console).runtimeconfig.json
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\bin\Debug\net9.0\Test App (Console).dll
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\bin\Debug\net9.0\Test App (Console).pdb
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\Test App (Console).GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\Test App (Console).AssemblyInfoInputs.cache
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\Test App (Console).AssemblyInfo.cs
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\Test App (Console).csproj.CoreCompileInputs.cache
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\Test App (Console).sourcelink.json
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\Test App (Console).dll
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\refint\Test App (Console).dll
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\Test App (Console).pdb
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\Test App (Console).genruntimeconfig.cache
+C:\Users\Aaron\sparta_training\cloud_computing\Azure\Azure_Study_Notes\Test App (Console)\obj\Debug\net9.0\ref\Test App (Console).dll
